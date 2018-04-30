@@ -2,75 +2,98 @@
 #Could be expanded to include area and circumferences, distance between eachother on a graph, etc.
 #Problems so far: the 2nd part of the division function doesn't display the full decimal. 
 
-x = input('What is the first number?: ')
-y = input('What is the second number?: ')
-pi = 3.14159265359
+class AnythingCalculator:
+    def __init__(self):
+        self.pi = 3.14159265359
+        self.number_1 = input('What is the first number?: ')
+        self.number_2 = input('What is the second number?: ')
 
-def addition():
-    print('If you added '+str(x)+' and '+str(y)+', you would get...')
-    print(x+y)
-    print('')
+        try:
+            self.number_1 = int(self.number_1)
+        except:
+            print("The first number is not a valid integer")
+            return
 
-def subtraction():
-    print('If you subtracted '+str(y)+' from '+str(x)+', you would get...')
-    print(x-y)
-    print('')
-    print('If you subtracted '+str(x)+' from '+str(y)+', you would get...')
-    print(y-x)
-    print('')
+        try:
+            self.number_2 = int(self.number_2)
+        except:
+            print("The second number is not a valid integer")
+            return
 
-def multiplication():
-    print('If you multiplied '+str(x)+' and '+str(y)+', you would get...')
-    print(x*y)
-    print('')
+    def addition(self):
+        print("If you added {0} and {1} you would get ...".format(self.number_1, self.number_2))
+        print(self.number_1 + self.number_2)
+        print("")
 
-def division():
-    print('If you divided '+str(x)+' by '+str(y)+', you would get...')
-    print(float(x/y))
-    print('')
-    print('If you divided '+str(y)+' by '+str(x)+', you would get...')
-    print(float(y/x))
-    print('')
+    def subtraction(self):
+        print("If you subtracted {0} from {1} you would get ...".format(self.number_1, self.number_2))
+        print(self.number_1 - self.number_2)
+        print("")
+        print("If you subtracted {0} from {1} you would get ...".format(self.number_2, self.number_1))
+        print(self.number_2 - self.number_1)
+        print("")
 
-def exponents():
-    print('If you squared '+str(x)+', you would get...')
-    print(x**2)
-    print('')
-    print('If you squared '+str(y)+', you would get...')
-    print(y**2)
-    print('')
-    print('If '+str(x)+' was the base, and '+str(y)+' was the exponent, you would get...')
-    print(x**y)
-    print('')
-    print('If '+str(y)+' was the base, and '+str(x)+' was the exponent, you would get...')
-    print(y**x)
-    print('')
+    def multiplication(self):
+        print("If you multiplied {0} and {1} you would get ...".format(self.number_1, self.number_2))
+        print(self.number_1 * self.number_2)
+        print("")
 
-def area():
-    print('If '+str(x)+' and '+str(y)+' were the length and width of a rectangle, the perimeter of that rectangle would be...')
-    print((x+y)*2)
-    print('')
-    print('If '+str(x)+' and '+str(y)+' were the base and hight of a triangle, the area of that triangle would be...')
-    print((x*y)/2)
-    print('')
-    print('If '+str(x)+' was the radius of a circle, that circle would have an area of...')
-    print(pi*(x**2))
-    print('')
-    print('If '+str(y)+' was the radius of a circle, that circle would have an area of...')
-    print(pi*(y**2))
-    print('')
-    print('If '+str(x)+' was the radius of a circle, that circle would have an circumference of...')
-    print(2*pi*x)
-    print('')
-    print('If '+str(y)+' was the radius of a circle, that circle would have an circumference of...')
-    print(2*pi*y)
-    print('')
+    def division(self):
+        print("If you divide {0} by {1} you would get ...".format(self.number_1, self.number_2))
+        print(self.number_1 / self.number_2)
+        print("")
+        print("If you divide {0} by {1} you would get ...".format(self.number_2, self.number_1))
+        print(self.number_2 / self.number_1)
+        print("")
 
-print('')
-addition()
-subtraction()
-multiplication()
-division()
-exponents()
-area()
+    def exponents(self):
+        print("If you squared {0}, you would get...".format(self.number_1))
+        print(self.number_1**2)
+        print("")
+        print("If you squared {0}".format(self.number_2))
+        print(self.number_2**2)
+        print("")
+        print("If {0} was the base, and {1} was the exponent, you would get...".format(self.number_1, self.number_2))
+        print(self.number_1** self.number_2)
+        print("")
+        print("If {0} was the base, and {1} was the exponent, you would get...".format(self.number_2, self.number_1))
+        print(self.number_2** self.number_1)
+        print("")
+
+    def area(self):
+        print("If {0} and {1} were the length and width of a rectangle, the perimeter of that rectangle would be...")
+        print((self.number_1 + self.number_2)*2)
+        print("")
+        print("If {0} and {1} were the base and height of a triangle, the area of that triangle would be...")
+        print((self.number_1 * self.number_2)/2)
+        print("")
+        print("If {0} was the radius of a circle, that circle would have an area of...")
+        print(self.pi * (self.number_1 ** 2))
+        print("")
+        print("If {0} was the radius of a circle, that circle would have an area of...".format(self.number_2))
+        print(self.pi * (self.number_2 ** 2))
+        print("")
+        print("If {0} was the radius of a circle, that circle would have an circumference of...".format(self.number_1))
+        print(2 * self.pi * self.number_1)
+        print("")
+        print("If {0} was the radius of a circle, that circle would have an circumference of...".format(self.number_2))
+        print(2 * self.pi * self.number_2)
+        print("")
+
+    def modulus(self):
+        print("If you modulo {0} by {1} you would get ...".format(self.number_1, self.number_2))
+        print(self.number_1 % self.number_2)
+        print("")
+        print("If you modulo {0} by {1} you would get ...".format(self.number_2, self.number_1))
+        print(self.number_2 % self.number_1)
+        print("")
+
+calc = AnythingCalculator()
+calc.addition()
+calc.subtraction()
+calc.division()
+calc.exponents()
+calc.area()
+calc.modulus()
+
 print('Interesting.')
